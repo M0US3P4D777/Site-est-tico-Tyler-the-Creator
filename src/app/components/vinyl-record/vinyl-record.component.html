@@ -1,0 +1,38 @@
+<div class="vinyl-player">
+  <img
+    *ngIf="imagePath"
+    class="vinyl-image"
+    [class.is-playing]="isPlaying"
+    [src]="imagePath"
+    [alt]="'Disco de vinil de ' + albumTitle"
+  />
+
+  <div class="track-list" *ngIf="tracks.length">
+    <button
+      *ngFor="let track of tracks; let index = index"
+      type="button"
+      class="track-button"
+      [class.is-selected]="index === selectedTrackIndex"
+      [attr.aria-pressed]="index === selectedTrackIndex"
+      (click)="selectTrack(index)"
+    >
+      {{ track.title }}
+    </button>
+  </div>
+
+  <audio
+    #audioPlayer
+    *ngIf="selectedTrack as track"
+    class="audio-player"
+    controls
+    [src]="track.audioPath"
+    [attr.aria-label]="'Reproduzir música de ' + albumTitle"
+    (play)="isPlaying = true; playbackError = ''"
+    (pause)="isPlaying = false"
+    (ended)="isPlaying = false"
+  ></audio>
+
+  <p *ngIf="playbackError" class="playback-error" role="status">
+    {{ playbackError }}
+  </p>
+</div>

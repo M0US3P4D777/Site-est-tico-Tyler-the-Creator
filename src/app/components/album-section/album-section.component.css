@@ -1,0 +1,229 @@
+.album-section {
+  overflow: hidden;
+  color: var(--album-foreground);
+  background: var(--album-surface);
+}
+
+.album-section--flower-boy {
+  --album-surface: var(--color-deep-green);
+  --album-foreground: var(--color-cream);
+  --album-detail-accent: var(--color-yellow);
+  --album-release-background: var(--color-yellow);
+  --album-release-foreground: #4c452b;
+  --vinyl-track-background: rgb(255 248 231 / 92%);
+  --vinyl-track-foreground: #315a48;
+  --vinyl-track-active: var(--color-yellow);
+  --vinyl-focus: var(--color-orange);
+  --album-display-font: "Cooper Black", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+}
+
+.album-section--igor {
+  --album-surface: #d982a0;
+  --album-hero-surface: #d982a0;
+  --album-foreground: #fffafd;
+  --album-detail-accent: #ffe1eb;
+  --album-release-background: #ffe1eb;
+  --album-release-foreground: #71344b;
+  --vinyl-track-background: #fffafd;
+  --vinyl-track-foreground: #71344b;
+  --vinyl-track-active: #f4a8c1;
+  --vinyl-focus: #71344b;
+  --album-display-font: "Franklin Gothic Heavy", "Arial Black", Impact, sans-serif;
+}
+
+.album-hero {
+  position: relative;
+  display: grid;
+  min-height: 620px;
+  background-color: var(--album-hero-surface, var(--color-sky));
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-content {
+  position: relative;
+  display: grid;
+  width: min(1080px, calc(100% - 64px));
+  min-height: inherit;
+  margin: 0 auto;
+  grid-template-columns: minmax(220px, 1fr) minmax(260px, 1.1fr) minmax(220px, 1fr);
+  align-items: center;
+  gap: 24px;
+}
+
+.hero-content > .artist-image {
+  grid-column: 3;
+}
+
+.vinyl-placement {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  top: calc(100% - 165px);
+  left: 0;
+}
+
+.album-section--igor .hero-title {
+  grid-column: 2;
+}
+
+.album-section--igor .artist-image {
+  grid-column: 1;
+}
+
+.album-section--igor .vinyl-placement {
+  right: 0;
+  left: auto;
+}
+
+.hero-title {
+  grid-column: 2;
+  z-index: 1;
+  text-align: center;
+  color: var(--color-cream);
+  text-shadow: 0 3px 18px rgb(24 55 62 / 35%);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--color-yellow);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-title h1,
+.details-heading h2 {
+  margin: 0;
+  font-family: var(--album-display-font);
+  font-weight: 900;
+}
+
+.hero-title h1 {
+  font-size: clamp(3.7rem, 7vw, 6.5rem);
+  line-height: 0.95;
+}
+
+.title-sparkle {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--color-orange);
+  font-size: 2rem;
+}
+
+.artist-image {
+  align-self: end;
+  justify-self: center;
+  width: min(100%, 350px);
+  max-height: 500px;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 16px 22px rgb(34 57 38 / 22%));
+}
+
+.hero-caption {
+  position: absolute;
+  right: 32px;
+  bottom: 22px;
+  color: var(--color-cream);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 45%);
+}
+
+.album-details {
+  display: grid;
+  width: min(1000px, calc(100% - 180px));
+  margin: 0 auto;
+  padding: 240px 0 88px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.details-heading .eyebrow {
+  color: var(--album-detail-accent);
+}
+
+.details-heading h2 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 3.7rem);
+  line-height: 1.04;
+}
+
+.release-label {
+  display: inline-block;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: var(--album-release-background);
+  color: var(--album-release-foreground);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 930px) {
+  .album-hero {
+    min-height: 700px;
+    background-position: 53% center;
+  }
+
+  .hero-content {
+    width: min(100% - 32px, 520px);
+    padding: 38px 0 58px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 4px 12px;
+  }
+
+  .hero-title {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .hero-title h1 {
+    font-size: clamp(3.5rem, 15vw, 5.5rem);
+  }
+
+  .vinyl-placement {
+    top: calc(100% - 165px);
+    left: 0;
+  }
+
+  .artist-image {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    max-height: 390px;
+    align-self: end;
+  }
+
+  .album-section--igor .hero-title {
+    grid-column: 1 / -1;
+  }
+
+  .album-section--igor .artist-image {
+    grid-column: 1;
+  }
+
+  .album-section--igor .vinyl-placement {
+    right: 0;
+    left: auto;
+  }
+
+  .hero-caption {
+    right: 16px;
+    bottom: 16px;
+    font-size: 0.68rem;
+  }
+
+  .album-details {
+    width: min(100% - 48px, 680px);
+    padding: 240px 0 76px;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+}

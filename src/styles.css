@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-sky: #87ceeb;
+  --color-yellow: #f9d949;
+  --color-orange: #f4a340;
+  --color-green: #5b8c51;
+  --color-cream: #fff8e7;
+  --color-deep-green: #315a48;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--color-deep-green);
+  color: var(--color-cream);
+  font-family: "Poppins", sans-serif;
+}
+
+.album-section--flower-boy {
+  --album-button-background: var(--color-yellow);
+  --album-button-foreground: #4c452b;
+  --album-button-border: #ffeb88;
+}
+
+.album-section--igor {
+  --album-button-background: #fffafd;
+  --album-button-foreground: #71344b;
+  --album-button-border: #fffafd;
+}
+
+.album-section--igor .album-hero {
+  min-height: clamp(420px, 45vw, 560px);
+  background-position: center;
+}
+
+.album-section--flower-boy .album-hero {
+  min-height: clamp(460px, 48vw, 540px);
+}
+
+.album-section--igor .hero-content {
+  width: min(1160px, calc(100% - 64px));
+}
+
+.album-section--igor .hero-title {
+  color: #fffafd;
+  text-shadow: 0 3px 20px rgb(52 23 34 / 65%);
+}
+
+.album-section--igor .hero-title .eyebrow,
+.album-section--igor .title-sparkle {
+  color: #ffe1eb;
+}
+
+.album-section--igor .vinyl-placement {
+  top: calc(100% - clamp(140px, 14vw, 170px));
+  right: 0;
+  left: auto;
+}
+
+.album-section--igor .album-details--igor {
+  display: grid;
+  width: min(1120px, calc(100% - 64px));
+  padding: clamp(210px, 21vw, 250px) 0 88px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+}
+
+.album-section--igor .igor-details-heading,
+.album-section--igor .details-copy {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.album-section--igor .igor-details-heading .details-heading {
+  width: min(100%, 760px);
+  margin: 0;
+  text-align: left;
+}
+
+.album-section--igor .igor-details-heading .eyebrow {
+  color: #ffe1eb;
+}
+
+.album-section--igor .igor-details-heading h2 {
+  font-size: clamp(2.2rem, 4vw, 3.7rem);
+}
+
+.album-section--igor .details-copy {
+  text-align: left;
+}
+
+.album-section--igor .igor-bottom-portrait {
+  display: block;
+  width: clamp(312.5px, 40vw, 487.5px);
+  max-height: 575px;
+  margin: 0 0 0 auto;
+  object-fit: contain;
+  object-position: bottom;
+  transform: translateY(-18px);
+  filter: drop-shadow(0 12px 20px rgb(58 24 37 / 24%));
+}
+
+.album-section--igor .details-footer {
+  margin-top: 0;
+  justify-content: flex-start;
+}
+
+.details-heading {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.details-heading,
+.details-copy {
+  width: min(100%, 760px);
+}
+
+.album-section--flower-boy .details-heading,
+.album-section--flower-boy .details-copy {
+  margin-left: auto;
+  text-align: right;
+}
+
+.album-section--igor .details-heading,
+.album-section--igor .details-copy {
+  margin-right: auto;
+  text-align: left;
+}
+
+.details-heading h2 {
+  font-size: clamp(2.2rem, 4vw, 3.7rem);
+}
+
+.album-details--title-only {
+  display: flex;
+  width: 100%;
+  padding: 32px 24px 44px;
+  justify-content: center;
+  text-align: center;
+}
+
+.album-name {
+  margin: 0;
+  color: #fffafd;
+  font-family: var(--album-display-font);
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.details-context {
+  margin: 16px 0 0;
+  color: var(--album-detail-accent);
+  font-size: 0.77rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.details-copy p {
+  margin: 0;
+  padding: 0;
+  font-size: 0.94rem;
+  line-height: 1.78;
+}
+
+.details-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.details-footer {
+  display: flex;
+  margin-top: 26px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.album-section--flower-boy .details-footer {
+  justify-content: flex-end;
+}
+
+.album-section--igor .details-footer {
+  justify-content: flex-start;
+}
+
+.youtube-button {
+  display: inline-flex;
+  min-height: 42px;
+  padding: 9px 18px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid var(--album-button-border);
+  border-radius: 999px;
+  background: var(--album-button-background);
+  color: var(--album-button-foreground);
+  cursor: not-allowed;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  opacity: 0.78;
+}
+
+.youtube-button span {
+  font-size: 1rem;
+}
+
+@media (max-width: 930px) {
+  .album-section--flower-boy .album-hero {
+    min-height: clamp(460px, 67vw, 600px);
+  }
+
+  .album-section--igor .album-hero {
+    min-height: clamp(440px, 70vw, 560px);
+    background-position: 53% center;
+  }
+
+  .album-section--igor .hero-content {
+    width: min(100% - 32px, 520px);
+  }
+
+  .album-section--igor .hero-title {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .album-section--igor .vinyl-placement {
+    top: calc(100% - 150px);
+    right: 0;
+  }
+
+  .album-section--igor .album-details--igor {
+    width: min(100% - 48px, 760px);
+    padding: clamp(210px, 26vw, 260px) 0 76px;
+    gap: 24px;
+  }
+
+  .album-details--title-only {
+    padding: 28px 16px 36px;
+  }
+
+  @media (max-width: 600px) {
+    .album-section--igor .album-hero {
+      min-height: clamp(400px, 110vw, 480px);
+    }
+
+    .album-section--igor .hero-content {
+      width: calc(100% - 24px);
+    }
+
+    .album-section--igor .vinyl-placement {
+      top: calc(100% - 125px);
+      right: -6px;
+    }
+
+    .album-section--igor .album-details--igor {
+      width: min(100% - 40px, 480px);
+      padding: 220px 0 60px;
+      gap: 22px;
+    }
+
+    .album-section--igor .igor-details-heading .details-heading {
+      text-align: center;
+    }
+
+    .album-section--flower-boy .album-hero {
+      min-height: clamp(460px, 110vw, 540px);
+    }
+
+    .album-section--igor .igor-bottom-portrait {
+      width: clamp(275px, 77.5vw, 375px);
+      margin-right: auto;
+      margin-left: auto;
+      max-height: 450px;
+    }
+  }
+
+  .details-heading {
+    margin-bottom: 22px;
+  }
+
+  .details-copy {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .details-copy p {
+    margin-bottom: 0;
+  }
+
+  .details-copy p:last-child {
+    grid-column: auto;
+  }
+}
+
+@media (min-width: 931px) {
+  .details-copy {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+.album-details--flower-boy {
+  width: min(1120px, calc(100% - 64px));
+  padding: 0 0 88px;
+  row-gap: clamp(24px, 3vw, 40px);
+}
+
+.flower-composition {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.35fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  transform: translateY(clamp(-40px, -3vw, -24px));
+}
+
+.album-section--flower-boy .details-heading {
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  transform: translateY(clamp(-60px, -4.5vw, -36px));
+}
+
+.album-section--flower-boy .details-heading h2 {
+  max-width: 650px;
+  font-size: clamp(2.2rem, 4.1vw, 3.8rem);
+}
+
+.album-section--flower-boy .details-copy {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  text-align: left;
+}
+
+.album-section--flower-boy .details-footer {
+  margin-top: 0;
+  justify-content: flex-end;
+}
+
+@media (max-width: 930px) {
+  .album-details--flower-boy {
+    width: min(100% - 48px, 760px);
+    padding: 0 0 72px;
+    row-gap: 30px;
+  }
+
+  .flower-composition {
+    grid-template-columns: minmax(210px, 0.9fr) minmax(0, 1.1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .album-details--flower-boy {
+    width: min(100% - 40px, 480px);
+    padding: 0 0 60px;
+  }
+
+  .flower-composition {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 24px;
+  }
+
+  .album-section--flower-boy .details-heading {
+    text-align: center;
+    transform: none;
+  }
+
+  .album-section--flower-boy .details-heading h2 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .album-section--flower-boy .details-copy {
+    text-align: left;
+  }
+
+  .album-section--flower-boy .details-footer {
+    justify-content: center;
+  }
+}

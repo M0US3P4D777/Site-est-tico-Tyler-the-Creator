@@ -1,0 +1,122 @@
+<section
+  class="album-section"
+  [class.album-section--igor]="album.theme === 'igor'"
+  [class.album-section--flower-boy]="album.theme === 'flower-boy'"
+  [attr.aria-label]="album.title"
+>
+  <div
+    class="album-hero"
+    [style.background-image]="
+      album.backgroundImage
+        ? (album.theme === 'igor'
+            ? 'linear-gradient(90deg, rgb(217 130 160 / 24%), rgb(217 130 160 / 24%)), url('
+            : 'linear-gradient(90deg, rgb(40 125 151 / 46%), rgb(135 206 235 / 16%)), url(') +
+          album.backgroundImage + ')'
+        : null
+    "
+  >
+    <div class="hero-content">
+      <div *ngIf="album.theme === 'igor'" class="vinyl-placement">
+        <app-vinyl-record
+          [albumTitle]="album.title"
+          [imagePath]="album.vinylImage"
+          [tracks]="album.tracks"
+        ></app-vinyl-record>
+      </div>
+
+      <div *ngIf="album.theme === 'flower-boy'" class="hero-title">
+        <p *ngIf="album.theme === 'flower-boy'" class="eyebrow">
+          Tyler, The Creator
+        </p>
+        <h1>{{ album.title }}</h1>
+        <span class="title-sparkle" aria-hidden="true">✳</span>
+      </div>
+
+      <img
+        *ngIf="album.theme === 'flower-boy' && album.artistImage"
+        class="artist-image"
+        [src]="album.artistImage"
+        [alt]="'Tyler, The Creator no universo de ' + album.title"
+      />
+    </div>
+    <span class="hero-caption">{{ album.heroCaption }}</span>
+  </div>
+
+  <div
+    class="album-details"
+    [class.album-details--title-only]="album.theme === 'igor'"
+    [class.album-details--igor]="album.theme === 'igor'"
+    [class.album-details--flower-boy]="album.theme === 'flower-boy'"
+  >
+    <ng-container *ngIf="album.theme === 'igor'">
+      <div class="igor-details-heading">
+        <div class="details-heading">
+          <p class="eyebrow">{{ album.detailsEyebrow }}</p>
+          <h2>{{ album.detailsTitle }}</h2>
+          <p class="details-context">{{ album.detailsContext }}</p>
+        </div>
+      </div>
+      <div class="details-copy">
+        <p *ngFor="let paragraph of album.description">
+          <ng-container *ngFor="let segment of paragraph">
+            <em *ngIf="segment.italic; else plainIgorText">{{ segment.text }}</em>
+            <ng-template #plainIgorText>{{ segment.text }}</ng-template>
+          </ng-container>
+        </p>
+      </div>
+      <div class="details-footer">
+        <span class="release-label">Álbum · {{ album.year }}</span>
+        <button
+          class="youtube-button"
+          type="button"
+          disabled
+          [attr.aria-label]="'Link do álbum ' + album.title + ' no YouTube será adicionado'"
+        >
+          Ouvir {{ album.title }} no YouTube
+          <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+      <img
+        *ngIf="album.artistImage"
+        class="igor-bottom-portrait"
+        [src]="album.artistImage"
+        alt="Retrato de Tyler, The Creator"
+      />
+    </ng-container>
+
+    <ng-container *ngIf="album.theme === 'flower-boy'">
+      <div class="flower-composition">
+        <app-vinyl-record
+          [albumTitle]="album.title"
+          [imagePath]="album.vinylImage"
+          [tracks]="album.tracks"
+        ></app-vinyl-record>
+        <div class="details-heading">
+          <p class="eyebrow">{{ album.detailsEyebrow }}</p>
+          <h2>{{ album.detailsTitle }}</h2>
+          <p class="details-context">{{ album.detailsContext }}</p>
+        </div>
+      </div>
+      <div class="details-copy">
+        <p *ngFor="let paragraph of album.description">
+          <ng-container *ngFor="let segment of paragraph">
+            <em *ngIf="segment.italic; else plainText">{{ segment.text }}</em>
+            <ng-template #plainText>{{ segment.text }}</ng-template>
+          </ng-container>
+        </p>
+      </div>
+      <div class="details-footer">
+        <span class="release-label">Álbum · {{ album.year }}</span>
+        <button
+          class="youtube-button"
+          type="button"
+          disabled
+          [attr.aria-label]="'Link do álbum ' + album.title + ' no YouTube será adicionado'"
+        >
+          Ouvir {{ album.title }} no YouTube
+          <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</section>

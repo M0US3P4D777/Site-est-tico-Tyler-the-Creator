@@ -1,0 +1,70 @@
+.vinyl-player {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.vinyl-image {
+  display: block;
+  width: clamp(190px, 24vw, 300px);
+  aspect-ratio: 1;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 18px rgb(17 42 47 / 30%));
+}
+
+.vinyl-image.is-playing {
+  animation: vinyl-spin 3.4s linear infinite;
+}
+
+.audio-player {
+  width: min(260px, 72vw);
+}
+
+.track-list {
+  display: grid;
+  width: min(260px, 72vw);
+  gap: 6px;
+}
+
+.track-button {
+  padding: 7px 10px;
+  border: 1px solid rgb(255 248 231 / 70%);
+  border-radius: 999px;
+  background: var(--vinyl-track-background, rgb(255 248 231 / 92%));
+  color: var(--vinyl-track-foreground, #315a48);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.track-button.is-selected {
+  border-color: var(--vinyl-track-active, var(--color-yellow));
+  background: var(--vinyl-track-active, var(--color-yellow));
+}
+
+.track-button:focus-visible {
+  outline: 3px solid var(--vinyl-focus, var(--color-orange));
+  outline-offset: 2px;
+}
+
+.playback-error {
+  max-width: 260px;
+  margin: 0;
+  color: var(--color-cream);
+  font-size: 0.72rem;
+  text-align: center;
+}
+
+@keyframes vinyl-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vinyl-image.is-playing {
+    animation-duration: 12s;
+  }
+}
