@@ -22,6 +22,7 @@ export class AppComponent {
     detailsEyebrow: 'Uma nova estação',
     detailsContext: 'Introspecção · identidade · amadurecimento',
     detailsTitle: 'Flower Boy — A beleza de florescer',
+    youtubeUrl: 'https://youtu.be/MvEtKc8-n3s?si=jjSBw-fLuTFny_Cb',
     description: [
       [
         { text: 'Lançado em 2017, ' },
@@ -67,6 +68,7 @@ export class AppComponent {
     detailsEyebrow: 'O amor em todas as suas formas',
     detailsContext: 'Desejo · apego · insegurança · transformação',
     detailsTitle: 'IGOR — O amor em todas as suas formas',
+    youtubeUrl: 'https://youtu.be/6S20mJvr4vs?si=_uddoWWy3L4CwnON',
     description: [
       [
         { text: 'Lançado em 2019, ' },

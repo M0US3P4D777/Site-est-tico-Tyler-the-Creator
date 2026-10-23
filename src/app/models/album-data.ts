@@ -21,5 +21,6 @@ export interface AlbumData {
   detailsTitle: string;
   description: AlbumTextSegment[][];
   year?: string;
+  youtubeUrl?: string;
   tracks: AlbumTrack[];
 }

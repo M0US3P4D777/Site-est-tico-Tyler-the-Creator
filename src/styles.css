@@ -218,6 +218,17 @@ body {
   font-size: 1rem;
 }
 
+.album-section a.youtube-button {
+  cursor: pointer;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.album-section a.youtube-button:focus-visible {
+  outline: 3px solid var(--color-orange);
+  outline-offset: 3px;
+}
+
 @media (max-width: 930px) {
   .album-section--flower-boy .album-hero {
     min-height: clamp(460px, 67vw, 600px);
@@ -322,20 +333,16 @@ body {
 }
 
 .flower-composition {
-  position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.35fr);
   align-items: center;
   gap: clamp(24px, 4vw, 56px);
-  transform: translateY(clamp(-40px, -3vw, -24px));
 }
 
 .album-section--flower-boy .details-heading {
   width: 100%;
   margin: 0;
   text-align: left;
-  transform: translateY(clamp(-60px, -4.5vw, -36px));
 }
 
 .album-section--flower-boy .details-heading h2 {

@@ -66,15 +66,16 @@
       </div>
       <div class="details-footer">
         <span class="release-label">Álbum · {{ album.year }}</span>
-        <button
+        <a
           class="youtube-button"
-          type="button"
-          disabled
-          [attr.aria-label]="'Link do álbum ' + album.title + ' no YouTube será adicionado'"
+          [href]="album.youtubeUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="'Ouvir ' + album.title + ' no YouTube (abre em uma nova aba)'"
         >
           Ouvir {{ album.title }} no YouTube
           <span aria-hidden="true">↗</span>
-        </button>
+        </a>
       </div>
       <img
         *ngIf="album.artistImage"
@@ -107,15 +108,16 @@
       </div>
       <div class="details-footer">
         <span class="release-label">Álbum · {{ album.year }}</span>
-        <button
+        <a
           class="youtube-button"
-          type="button"
-          disabled
-          [attr.aria-label]="'Link do álbum ' + album.title + ' no YouTube será adicionado'"
+          [href]="album.youtubeUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="'Ouvir ' + album.title + ' no YouTube (abre em uma nova aba)'"
         >
           Ouvir {{ album.title }} no YouTube
           <span aria-hidden="true">↗</span>
-        </button>
+        </a>
       </div>
     </ng-container>
   </div>
